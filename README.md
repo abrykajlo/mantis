@@ -11,3 +11,9 @@ As far as tech, the idea I have in my head is to have a Rust based raytracer tha
 ## How will I learn?
 
 The first part I plan to go through Peter Shirleys Ray Tracer in a Weekend and then after I have that all neatly arranged figuring out how to integrate Haskell into my project. I also want to go through Matt Pharr's PBR Book so to get a deeper understanding of more of the topics and refine the quality and performance of my code. I imagine a timeline for all this to be half a year or longer realistically knowing my external work performance.
+
+## Raytracer In A Weekend
+
+### Chapter 1 - Output An Image
+
+![Chapter 1](https://raw.githubusercontent.com/abrykajlo/mantis/chapter1.png)
