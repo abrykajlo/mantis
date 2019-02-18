@@ -16,4 +16,8 @@ The first part I plan to go through Peter Shirleys Ray Tracer in a Weekend and t
 
 ### Chapter 1 - Output An Image
 
-![Chapter 1](https://raw.githubusercontent.com/abrykajlo/mantis/chapter1.png)
+![Chapter 1](https://www.github.com/abrykajlo/mantis/chapter1.png)
+
+### Chapter 3 - Rays, A Simple Camera and Background
+
+![Chapter 3](https://www.github.com/abrykajlo/mantis/chapter3.png)
