@@ -218,3 +218,7 @@ impl_op_vec!(Add, add, +);
 impl_op_vec!(Sub, sub, -);
 impl_op_vec!(Mul, mul, *);
 impl_op_vec!(Div, div, /);
+
+pub fn dot(v1: &Vec3, v2: &Vec3) -> f32 {
+    v1[0] * v2[0] + v1[1] * v2[1] + v1[2] * v2[2] 
+}

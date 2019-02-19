@@ -1,7 +1,7 @@
 mod math;
 
 use math::ray::Ray;
-use math::vec::Vec3;
+use math::vec::{Vec3, dot};
 
 fn main() {
     let nx: i32 = 200;
@@ -28,7 +28,20 @@ fn main() {
     }
 }
 
+fn hit_sphere(center: &Vec3, radius: f32, r: &Ray) -> bool {
+    let oc = r.origin() - center;
+    let a = dot(&r.direction(), &r.direction());
+    let b = 2.0 * dot(&oc, &r.direction());
+    let c = dot(&oc, &oc) - radius * radius;
+    let discriminant = b * b - 4.0*a*c;
+    discriminant > 0.0
+}
+
 fn color(r: &Ray) -> Vec3 {
+    if hit_sphere(&Vec3::new(0.0, 0.0, -1.0), 0.5, r) {
+        return Vec3::new(1.0, 0.0, 0.0);
+    }
+
     let unit_direction = r.direction().unit_vector();
     let t = 0.5 * (unit_direction.y() + 1.0f32);
     &Vec3::new(1.0, 1.0, 1.0) * (1.0 - t) + &Vec3::new(0.5, 0.7, 1.0) * t
