@@ -1,10 +1,5 @@
 use std::ops::{
-    Add, AddAssign,
-    Sub, SubAssign,
-    Mul, MulAssign,
-    Div, DivAssign,
-    Index, IndexMut,
-    Neg
+    Add, AddAssign, Div, DivAssign, Index, IndexMut, Mul, MulAssign, Neg, Sub, SubAssign,
 };
 
 #[derive(Copy, Clone)]
@@ -15,9 +10,7 @@ pub struct Vec3 {
 impl Vec3 {
     #[inline(always)]
     pub fn new(e0: f32, e1: f32, e2: f32) -> Vec3 {
-        Vec3 {
-            e: [e0, e1, e2],
-        }
+        Vec3 { e: [e0, e1, e2] }
     }
 
     #[inline(always)]
@@ -76,11 +69,7 @@ impl<'a> Neg for &'a Vec3 {
     #[inline(always)]
     fn neg(self) -> Self::Output {
         Vec3 {
-            e: [
-                -self.e[0],
-                -self.e[1],
-                -self.e[2],
-            ]
+            e: [-self.e[0], -self.e[1], -self.e[2]],
         }
     }
 }
@@ -118,17 +107,12 @@ impl DivAssign<f32> for Vec3 {
     }
 }
 
-
 impl<'a> Mul<f32> for &'a Vec3 {
     type Output = Vec3;
     #[inline(always)]
     fn mul(self, rhs: f32) -> Vec3 {
         Vec3 {
-            e: [
-                self.e[0] * rhs,
-                self.e[1] * rhs,
-                self.e[2] * rhs
-            ],
+            e: [self.e[0] * rhs, self.e[1] * rhs, self.e[2] * rhs],
         }
     }
 }
@@ -138,11 +122,7 @@ impl<'a> Div<f32> for &'a Vec3 {
     #[inline(always)]
     fn div(self, rhs: f32) -> Vec3 {
         Vec3 {
-            e: [
-                self.e[0] / rhs,
-                self.e[1] / rhs,
-                self.e[2] / rhs
-            ],
+            e: [self.e[0] / rhs, self.e[1] / rhs, self.e[2] / rhs],
         }
     }
 }
@@ -154,7 +134,7 @@ impl<'a> $trait<&'a Vec3> for Vec3 {
     fn $func(&mut self, rhs: &'a Vec3) {
         self.e[0] $op rhs.e[0];
         self.e[1] $op rhs.e[1];
-        self.e[2] $op rhs.e[3];
+        self.e[2] $op rhs.e[2];
     }
 }
 
@@ -163,7 +143,7 @@ impl $trait for Vec3 {
     fn $func(&mut self, rhs: Vec3) {
         self.e[0] $op rhs.e[0];
         self.e[1] $op rhs.e[1];
-        self.e[2] $op rhs.e[3];
+        self.e[2] $op rhs.e[2];
     }
 }
 };

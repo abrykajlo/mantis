@@ -1,7 +1,7 @@
 mod math;
 
-use math::vec::Vec3;
 use math::ray::Ray;
+use math::vec::Vec3;
 
 fn main() {
     let nx: i32 = 200;
@@ -15,7 +15,10 @@ fn main() {
         for i in 0..nx {
             let u = i as f32 / nx as f32;
             let v = j as f32 / ny as f32;
-            let r = Ray::new(&origin, &lower_left_corner + &horizontal * u + &vertical * v);
+            let r = Ray::new(
+                &origin,
+                &lower_left_corner + &horizontal * u + &vertical * v,
+            );
             let col = color(&r);
             let ir: i32 = (255.99 * col[0]) as i32;
             let ig: i32 = (255.99 * col[1]) as i32;
