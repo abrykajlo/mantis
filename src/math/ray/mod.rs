@@ -1,5 +1,7 @@
 use super::vec::Vec3;
 
+pub mod hitable;
+
 pub struct Ray {
     A: Vec3,
     B: Vec3,

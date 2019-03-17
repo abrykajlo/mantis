@@ -25,3 +25,7 @@ The first part I plan to go through Peter Shirleys Ray Tracer in a Weekend and t
 ### Chapter 4 - Adding A Sphere
 
 ![Chapter 4](https://github.com/abrykajlo/mantis/raw/master/chapter4.png)
+
+### Chapter 5 - Surface Normals and Multiple Objects
+
+![Chapter 4](https://github.com/abrykajlo/mantis/raw/master/chapter5.png)
