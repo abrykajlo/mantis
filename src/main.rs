@@ -1,8 +1,8 @@
 mod math;
 
+use math::ray::hitable::{HitRecord, Hitable, HitableList, Sphere};
 use math::ray::Ray;
 use math::vec::Vec3;
-use math::ray::hitable::{Hitable, HitRecord, Sphere, HitableList};
 use std::f32;
 
 fn main() {
@@ -36,7 +36,7 @@ fn main() {
 }
 
 fn color(r: &Ray, world: &Hitable) -> Vec3 {
-    if let Some(HitRecord{t:_,p:_, normal}) = world.hit(r, 0.0, f32::MAX) {
+    if let Some(HitRecord { t: _, p: _, normal }) = world.hit(r, 0.0, f32::MAX) {
         &Vec3::new(normal.x() + 1.0, normal.y() + 1.0, normal.z() + 1.0) * 0.5
     } else {
         let unit_direction = r.direction().unit_vector();

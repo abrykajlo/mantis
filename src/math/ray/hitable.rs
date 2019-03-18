@@ -1,5 +1,5 @@
+use super::super::vec::{dot, Vec3};
 use super::Ray;
-use super::super::vec::{Vec3, dot};
 
 pub trait Hitable {
     fn hit(&self, r: &Ray, tmin: f32, tmax: f32) -> Option<HitRecord>;
@@ -28,27 +28,23 @@ impl Sphere {
 impl Hitable for Sphere {
     fn hit(&self, r: &Ray, tmin: f32, tmax: f32) -> Option<HitRecord> {
         let oc = r.origin() - self.center;
-        
+
         let a = dot(&r.direction(), &r.direction());
         let b = 2.0 * dot(&oc, &r.direction());
         let c = dot(&oc, &oc) - self.radius * self.radius;
-        
-        let discriminant = b * b - 4.0*a*c;
+
+        let discriminant = b * b - 4.0 * a * c;
         let mut t = (-b - discriminant.sqrt()) / (2.0 * a);
         if t < tmax && t > tmin {
             let p = r.point_at_parameter(t);
             let normal = (p - self.center).unit_vector();
-            return Some(HitRecord{
-                t, p, normal
-            });
+            return Some(HitRecord { t, p, normal });
         }
         t = (-b + discriminant.sqrt()) / (2.0 * a);
         if t < tmax && t > tmin {
             let p = r.point_at_parameter(t);
             let normal = (p - self.center).unit_vector();
-            return Some(HitRecord{
-                t, p, normal
-            });
+            return Some(HitRecord { t, p, normal });
         }
         None
     }
@@ -60,9 +56,7 @@ pub struct HitableList {
 
 impl HitableList {
     pub fn new(hitable_list: Vec<Box<dyn Hitable>>) -> HitableList {
-        HitableList {
-            hitable_list,
-        }
+        HitableList { hitable_list }
     }
 }
 
